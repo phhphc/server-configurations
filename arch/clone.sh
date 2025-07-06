@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo 'Run with priviled user'
+
 # install git
 pacman -Sy --noconfirm git openssh
 
