@@ -1,5 +1,11 @@
 #!/bin/bash
 
+GIT_USER_EMAIL="phhphc@gmail.com"
+GIT_USER_NAME="Pham Phuoc"
+SSH_PRIVATE_KEY_PATH="$HOME/.ssh/id_ed25519"
+
+SSH_PUBLIC_KEY_PATH="$SSH_PRIVATE_KEY_PATH.pub"
+
 if [[ "$EUID" -eq 0 ]]; then
   echo "This script must be run as normal user." >&2
   exit 1
@@ -8,8 +14,6 @@ fi
 # update package
 sudo pacman -Sy
 
-SSH_PRIVATE_KEY_PATH="$HOME/.ssh/id_ed25519"
-SSH_PUBLIC_KEY_PATH="$SSH_PRIVATE_KEY_PATH.pub"
 # setup ssh client
 if [ ! -f "$SSH_PRIVATE_KEY_PATH" ]; then
   sudo pacman -S --noconfirm openssh
@@ -29,8 +33,8 @@ sudo pacman -S --noconfirm less
 mkdir -p ~/Workspaces/Personal/
 
 # config git
-git config --global user.email "phhphc@gmail.com"
-git config --global user.name "Pham Phuoc"
+git config --global user.email "$GIT_USER_EMAIL"
+git config --global user.name "$GIT_USER_NAME"
 git config --global gpg.format ssh
 git config --global user.signingkey "$SSH_PUBLIC_KEY_PATH"
 git config --global commit.gpgsign true
