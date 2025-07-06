@@ -6,7 +6,7 @@ if [[ "$EUID" -eq 0 ]]; then
 fi
 
 # update package
-sudo sudo pacman -Sy
+sudo pacman -Sy
 
 # setup ssh client
 if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
