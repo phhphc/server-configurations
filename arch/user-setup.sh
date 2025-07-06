@@ -17,5 +17,8 @@ fi
 # install language
 sudo pacman -S --noconfirm go
 
+# install utils
+sudo pacman -S --noconfirm yazi
+
 # Setup work directory
 mkdir -p ~/Workspaces/Personal/
