@@ -23,14 +23,20 @@ fi
 # install language
 sudo pacman -S --noconfirm go
 
+## install rust language
+# also install gcc to prevent: error: linker `cc` not found
+sudo pacman -S --noconfirm rustup gcc
+rustup default stable
+
 # install utils
 sudo pacman -S --noconfirm yazi
 
 # install common tools
-sudo pacman -S --noconfirm less
+sudo pacman -S --noconfirm less which
 
 # Setup work directory
 mkdir -p ~/Workspaces/Personal/
+mkdir -p ~/Workspaces/Playground/
 
 # config git
 git config --global user.email "$GIT_USER_EMAIL"
