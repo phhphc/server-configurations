@@ -8,10 +8,12 @@ fi
 # update package
 sudo pacman -Sy
 
+SSH_PRIVATE_KEY_PATH="$HOME/.ssh/id_ed25519"
+SSH_PUBLIC_KEY_PATH="$SSH_PRIVATE_KEY_PATH.pub"
 # setup ssh client
-if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
+if [ ! -f "$SSH_PRIVATE_KEY_PATH" ]; then
   sudo pacman -S --noconfirm openssh
-  ssh-keygen -t ed25519 -f "$HOME/.ssh/id_ed25519" -C "$USER@$HOSTNAME"
+  ssh-keygen -t ed25519 -f "$SSH_PRIVATE_KEY_PATH" -C "$USER@$HOSTNAME"
 fi
 
 # install language
@@ -29,3 +31,5 @@ mkdir -p ~/Workspaces/Personal/
 # config git
 git config --global user.email "phhphc@gmail.com"
 git config --global user.name "Pham Phuoc"
+git config --global gpg.format ssh
+git config --global user.signingkey "$SSH_PUBLIC_KEY_PATH"
