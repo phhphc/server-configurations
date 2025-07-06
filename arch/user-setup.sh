@@ -33,3 +33,4 @@ git config --global user.email "phhphc@gmail.com"
 git config --global user.name "Pham Phuoc"
 git config --global gpg.format ssh
 git config --global user.signingkey "$SSH_PUBLIC_KEY_PATH"
+git config --global commit.gpgsign true
