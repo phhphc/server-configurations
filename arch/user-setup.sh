@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ "$EUID" -eq 0 ]]; then
+  echo "This script must be run as normal user." >&2
+  exit 1
+fi
+
 # update package
 sudo sudo pacman -Sy
 
