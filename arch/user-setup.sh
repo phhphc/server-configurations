@@ -22,3 +22,7 @@ sudo pacman -S --noconfirm yazi
 
 # Setup work directory
 mkdir -p ~/Workspaces/Personal/
+
+# config git
+git config --global user.email "phhphc@gmail.com"
+git config --global user.name "Pham Phuoc"
