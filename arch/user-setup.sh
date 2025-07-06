@@ -14,5 +14,8 @@ if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
   ssh-keygen -t ed25519 -f "$HOME/.ssh/id_ed25519" -C "$USER@$HOSTNAME"
 fi
 
+# install language
+sudo pacman -S --noconfirm go
+
 # Setup work directory
 mkdir -p ~/Workspaces/Personal/
