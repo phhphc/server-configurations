@@ -20,10 +20,12 @@ sudo pacman -S --noconfirm go
 # install utils
 sudo pacman -S --noconfirm yazi
 
+# install common tools
+sudo pacman -S less
+
 # Setup work directory
 mkdir -p ~/Workspaces/Personal/
 
 # config git
-
 git config --global user.email "phhphc@gmail.com"
 git config --global user.name "Pham Phuoc"
