@@ -15,8 +15,8 @@ fi
 sudo pacman -Sy
 
 # setup ssh client
+sudo pacman -S --noconfirm openssh
 if [ ! -f "$SSH_PRIVATE_KEY_PATH" ]; then
-  sudo pacman -S --noconfirm openssh
   ssh-keygen -t ed25519 -f "$SSH_PRIVATE_KEY_PATH" -C "$USER@$HOSTNAME"
 fi
 
