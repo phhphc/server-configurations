@@ -21,7 +21,7 @@ sudo pacman -S --noconfirm go
 sudo pacman -S --noconfirm yazi
 
 # install common tools
-sudo pacman -S less
+sudo pacman -S --noconfirm less
 
 # Setup work directory
 mkdir -p ~/Workspaces/Personal/
