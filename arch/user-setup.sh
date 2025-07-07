@@ -19,6 +19,13 @@ cd "$RUN_DIR" || exit
 ## Update package
 sudo pacman -Sy
 
+## Install Yay AUR helper
+sudo pacman -S --needed --noconfirm git base-devel
+git clone https://aur.archlinux.org/yay-bin.git
+cd yay-bin || exit
+makepkg -si
+cd ..
+
 ## Setup ssh client
 sudo pacman -S --noconfirm openssh
 if [ ! -f "$SSH_PRIVATE_KEY_PATH" ]; then
