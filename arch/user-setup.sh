@@ -20,14 +20,15 @@ cd "$RUN_DIR" || exit
 sudo pacman -Sy
 
 ## Install Yay AUR helper
-sudo pacman -S --needed --noconfirm git base-devel
+# intall yay-bin github.com/Jguer/yay?tab=readme-ov-file#binary
 YAY_BIN_GIT_DIR=yay-bin
-if [ ! -d "$YAY_BIN_GIT_DIR" ]; then
-  git clone https://aur.archlinux.org/yay-bin.git "$YAY_BIN_GIT_DIR"
-fi
+sudo pacman -S --needed --noconfirm git base-devel
+if [ ! -d "$YAY_BIN_GIT_DIR" ]; then git clone https://aur.archlinux.org/yay-bin.git "$YAY_BIN_GIT_DIR"; fi
 cd "$YAY_BIN_GIT_DIR" || exit
-makepkg -si
+makepkg -si --noconfirm
 cd "$RUN_DIR" || exit
+# update yay https://github.com/Jguer/yay?tab=readme-ov-file#first-use
+yay -Y --gendb
 
 ## Setup ssh client
 sudo pacman -S --needed --noconfirm openssh
