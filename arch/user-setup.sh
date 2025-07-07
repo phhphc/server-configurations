@@ -1,5 +1,7 @@
 #!/bin/bash
 
+RUN_DIR=~
+
 GIT_USER_EMAIL="phhphc@gmail.com"
 GIT_USER_NAME="Pham Phuoc"
 SSH_PRIVATE_KEY_PATH="$HOME/.ssh/id_ed25519"
@@ -10,6 +12,9 @@ if [[ "$EUID" -eq 0 ]]; then
   echo "This script must be run as normal user." >&2
   exit 1
 fi
+
+## Move to home directory
+cd "$RUN_DIR" || exit
 
 ## Update package
 sudo pacman -Sy
