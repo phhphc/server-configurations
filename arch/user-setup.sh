@@ -11,34 +11,34 @@ if [[ "$EUID" -eq 0 ]]; then
   exit 1
 fi
 
-# update package
+## Update package
 sudo pacman -Sy
 
-# setup ssh client
+## Setup ssh client
 sudo pacman -S --noconfirm openssh
 if [ ! -f "$SSH_PRIVATE_KEY_PATH" ]; then
   ssh-keygen -t ed25519 -f "$SSH_PRIVATE_KEY_PATH" -C "$USER@$HOSTNAME"
 fi
 
-# install language
+# Install language
 sudo pacman -S --noconfirm go
 
-## install rust language
+## Install rust language
 # also install gcc to prevent: error: linker `cc` not found
 sudo pacman -S --noconfirm rustup gcc
 rustup default stable
 
-# install utils
+## Install utils
 sudo pacman -S --noconfirm yazi
 
-# install common tools
+## Install common tools
 sudo pacman -S --noconfirm less which
 
 # Setup work directory
 mkdir -p ~/Workspaces/Personal/
 mkdir -p ~/Workspaces/Playground/
 
-# config git
+## Config git
 git config --global user.email "$GIT_USER_EMAIL"
 git config --global user.name "$GIT_USER_NAME"
 git config --global gpg.format ssh
