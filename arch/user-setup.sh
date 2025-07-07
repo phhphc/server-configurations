@@ -23,7 +23,9 @@ sudo pacman -Sy
 ### Intall yay-bin github.com/Jguer/yay?tab=readme-ov-file#binary
 YAY_BIN_GIT_DIR=yay-bin
 sudo pacman -S --needed --noconfirm git base-devel
-if [ ! -d "$YAY_BIN_GIT_DIR" ]; then git clone https://aur.archlinux.org/yay-bin.git "$YAY_BIN_GIT_DIR"; fi
+if [ ! -d "$YAY_BIN_GIT_DIR" ]; then
+  git clone https://aur.archlinux.org/yay-bin.git "$YAY_BIN_GIT_DIR"
+fi
 cd "$YAY_BIN_GIT_DIR" || exit
 makepkg -si --noconfirm
 cd "$RUN_DIR" || exit
