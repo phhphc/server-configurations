@@ -9,5 +9,5 @@ fi
 pacman -Sy
 
 # setup sudo
-pacman -S --noconfirm sudo
+pacman -S --needed --noconfirm sudo
 echo "%wheel ALL=(ALL:ALL) /usr/bin/pacman" >/etc/sudoers.d/wheel

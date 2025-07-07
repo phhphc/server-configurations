@@ -27,24 +27,24 @@ makepkg -si
 cd ..
 
 ## Setup ssh client
-sudo pacman -S --noconfirm openssh
+sudo pacman -S --needed --noconfirm openssh
 if [ ! -f "$SSH_PRIVATE_KEY_PATH" ]; then
   ssh-keygen -t ed25519 -f "$SSH_PRIVATE_KEY_PATH" -C "$USER@$HOSTNAME"
 fi
 
 # Install language
-sudo pacman -S --noconfirm go
+sudo pacman -S --needed --noconfirm go
 
 ## Install rust language
 # also install gcc to prevent: error: linker `cc` not found
-sudo pacman -S --noconfirm rustup gcc
+sudo pacman -S --needed --noconfirm rustup gcc
 rustup default stable
 
 ## Install utils
-sudo pacman -S --noconfirm yazi
+sudo pacman -S --needed --noconfirm yazi
 
 ## Install common tools
-sudo pacman -S --noconfirm less which
+sudo pacman -S --needed --noconfirm less which
 
 # Setup work directory
 mkdir -p ~/Workspaces/Personal/
