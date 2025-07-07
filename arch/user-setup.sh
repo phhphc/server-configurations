@@ -21,10 +21,11 @@ sudo pacman -Sy
 
 ## Install Yay AUR helper
 sudo pacman -S --needed --noconfirm git base-devel
-git clone https://aur.archlinux.org/yay-bin.git
-cd yay-bin || exit
+YAY_BIN_GIT_DIR=yay-bin
+git clone https://aur.archlinux.org/yay-bin.git "$YAY_BIN_GIT_DIR"
+cd "$YAY_BIN_GIT_DIR" || exit
 makepkg -si
-cd ..
+cd "$RUN_DIR" || exit
 
 ## Setup ssh client
 sudo pacman -S --needed --noconfirm openssh
