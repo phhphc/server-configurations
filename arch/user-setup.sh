@@ -22,7 +22,9 @@ sudo pacman -Sy
 ## Install Yay AUR helper
 sudo pacman -S --needed --noconfirm git base-devel
 YAY_BIN_GIT_DIR=yay-bin
-git clone https://aur.archlinux.org/yay-bin.git "$YAY_BIN_GIT_DIR"
+if [ ! -d "$YAY_BIN_GIT_DIR" ]; then
+  git clone https://aur.archlinux.org/yay-bin.git "$YAY_BIN_GIT_DIR"
+fi
 cd "$YAY_BIN_GIT_DIR" || exit
 makepkg -si
 cd "$RUN_DIR" || exit
