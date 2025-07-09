@@ -22,3 +22,5 @@ WRITE_FILE_ACL="writeattr,writeextattr,writesecurity,delete"
 WRITE_DIR_ACL="add_file,add_subdirectory,delete_child"
 sudo /bin/chmod +a "group:$TARGET_GROUP allow $WRITE_FILE_ACL,$WRITE_DIR_ACL,file_inherit,directory_inherit" $SHARED_DIRECTORY_DIR
 ```
+
+> Note: On Linux use `setfacl`
